@@ -1,5 +1,5 @@
 
-Backup Completed Successfully (with Warnings)!
+SHRINK DB Backup Completed Successfully (with Warnings)!
 
 Job: <%= @model.label %> (<%= @model.trigger %>)
 Started:  <%= @model.started_at %>
@@ -12,5 +12,3 @@ See the attached backup log for details.
 
 ===========================================================================
 <%= Backup::Template.new.result("general/version.erb") %>
-
-<%= Backup::Template.new.result("general/links") %>
