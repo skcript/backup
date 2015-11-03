@@ -46,11 +46,9 @@ gem 'timecop'
 
 # Omitted from Travis CI Environment
 group :no_ci do
-  gem 'guard'
-  gem 'guard-rspec'
-
   gem 'rb-fsevent' # Mac OS X
   gem 'rb-inotify' # Linux
+  gem 'pry'
 
   gem 'yard'
   gem 'redcarpet'

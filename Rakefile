@@ -5,6 +5,14 @@ task :tasklist do
   exec 'rake -T'
 end
 
+desc 'Open a pry console in the Backup context'
+task :console do
+  require 'pry'
+  require 'backup'
+  ARGV.clear
+  Pry.start || exit
+end
+
 # Activate all dependencies in :production group in Gemfile
 # (along with their dependencies) according to Gemfile.lock
 # and update backup.gemspec to require exactly those versions.
@@ -64,7 +72,7 @@ task :release => :gemspec do
     end
   end
 
-  puts `git commit -m 'Release v#{ version }' lib/backup/version.rb`
+  puts `git commit -m 'Release v#{ version } [ci skip]' lib/backup/version.rb`
   `git tag #{ version }`
   exec 'gem build backup.gemspec'
 end
